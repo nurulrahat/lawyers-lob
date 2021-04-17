@@ -1,0 +1,27 @@
+.header{
+    background-color: midnightblue;
+}
+.header nav{
+  
+    text-align: right;
+    line-height: 50px;
+    font-size: 20px;
+    margin-bottom: 1px;
+}
+nav a{
+    color: rgb(196, 240, 243);
+    text-decoration: none;
+    margin: 20px;
+    padding: 12px;
+}
+nav a:hover{
+    background-color: rgb(220, 219, 230);
+}
+.header h2{
+   
+}
+.logoCls{
+     text-decoration: none;
+ color: rgb(196, 240, 243);
+}
+  

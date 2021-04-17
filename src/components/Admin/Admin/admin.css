@@ -1,0 +1,10 @@
+.formDiv input{
+    width: 60%;
+    margin: 5px 35px;
+    padding:5px;
+    border: 1px solid red;
+    border-radius: 5px;
+}
+.formCls{
+    border: 2px solid rgb(243, 187, 34);
+}
