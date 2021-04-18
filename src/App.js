@@ -17,6 +17,7 @@ import Book from './components/User/Book/Book';
 import Review from './components/Home/Review/Review';
 import BookingList from './components/User/BookingList/BookingList';
 import UserReview from './components/User/UserReview/UserReview';
+import AddAdmin from './components/Admin/AddAdmin/AddAdmin';
 
 
 export const UserContext=createContext() ;
@@ -37,6 +38,9 @@ function App() {
           <PrivateRoute path="/admin">
             <Admin></Admin>
           </PrivateRoute>
+          <Route path="/addAdmin">
+            <AddAdmin></AddAdmin>
+          </Route>
           <PrivateRoute path="/userDashboard">
             <UserDashBoard></UserDashBoard>
           </PrivateRoute>
