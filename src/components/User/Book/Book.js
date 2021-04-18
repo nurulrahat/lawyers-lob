@@ -14,7 +14,7 @@ const Book = () => {
     const [selectedService, setSelectedService] = useState({})
     useEffect(() => {
 
-        fetch(`http://localhost:5000/book/${id}`)
+        fetch(`https://whispering-lowlands-43821.herokuapp.com/book/${id}`)
             .then(response => response.json())
             .then(result => setSelectedService(result))
     }, [id])
@@ -35,7 +35,7 @@ const Book = () => {
             paymentDetails:paymentId
         }
         console.log(bookingDetails)
-        const url = `http://localhost:5000/insertBooking`
+        const url = `https://whispering-lowlands-43821.herokuapp.com/insertBooking`
         fetch(url, {
             method: 'POST',
             headers: {

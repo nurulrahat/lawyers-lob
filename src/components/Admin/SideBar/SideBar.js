@@ -1,15 +1,15 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import './sideBar.css'
 const SideBar = () => {
     return (
         <div class="sidenav">
-  <a href="#about">Book</a>
-  <a href="#services">Booking List</a>
-  <a href="#clients">Review</a>
-  <a href="#contact">Add Admin</a>
-  <a href="#orderlist">All Bookings</a>
-  <a href="#admin">Manage</a>
-</div>
+
+            <div class="sidenav">
+                <Link to="/addAdmin"><p>Add Admin</p></Link>
+                <Link to="/admin"><p>Manage</p></Link>
+            </div>
+        </div>
     );
 };
 

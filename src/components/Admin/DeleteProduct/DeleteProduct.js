@@ -4,7 +4,7 @@ const DeleteProduct = (props) => {
     const {_id,name,price} = props.service;
     const deleteProduct=(id,elem) => {
         //console.log(event.target.parentNode);
-        fetch(`http://localhost:5000/delete/${id}`, {
+        fetch(`https://whispering-lowlands-43821.herokuapp.com/delete/${id}`, {
             method: 'DELETE'
         }).then(response => response.json())
         .then(result =>{

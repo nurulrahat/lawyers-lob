@@ -1,25 +1,16 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import ReviewInfo from './ReviewInfo';
 
 
 const Review = () => {
-    const reviews = [
-        {
-            name: 'MD Daud',
-            occupation: 'Businessman',
-            details: 'lorem ipsum dolor sit amet Lorem ipsum dolor sit amet. '
-        },
-        {
-            name: 'MD Daud',
-            occupation: 'Businessman',
-            details: 'lorem ipsum dolor sit amet Lorem ipsum dolor sit amet. '
-        },
-        {
-            name: 'MD Daud',
-            occupation: 'Businessman',
-            details: 'lorem ipsum dolor sit amet Lorem ipsum dolor sit amet. '
-        },
-    ];
+    const [reviews,setReviews]=useState([])
+   
+    useEffect(() => {
+
+        fetch(`https://whispering-lowlands-43821.herokuapp.com/reviewsData`)
+            .then(response => response.json())
+            .then(result => setReviews(result))
+    },[] )
     return (
         <div className="container mt-4">
             <div>
@@ -27,7 +18,7 @@ const Review = () => {
             </div>
             <div className="row">
                 {
-                    reviews.map(review => <ReviewInfo review={review}></ReviewInfo>)
+                    reviews.map(review => <ReviewInfo review={review} key={review._id}></ReviewInfo>)
                 }
             </div>
 

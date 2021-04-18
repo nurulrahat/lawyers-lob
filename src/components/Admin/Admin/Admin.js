@@ -12,7 +12,7 @@ const Admin = () => {
   const [imageUrl, setImageUrl] = useState()
 
   const [allServices, setAllServices] = useState([])
-  const url1 = `http://localhost:5000/services`;
+  const url1 = `https://whispering-lowlands-43821.herokuapp.com/services`;
   useEffect(() => {
     fetch(url1)
       .then(res => res.json())
@@ -32,7 +32,7 @@ const Admin = () => {
       about: about,
       img: imageUrl
     }
-    const url2 = `http://localhost:5000/admin`
+    const url2 = `https://whispering-lowlands-43821.herokuapp.com/admin`
     fetch(url2, {
       method: 'POST',
       headers: {

@@ -1,11 +1,8 @@
 import React, { useEffect, useState } from 'react';
-import realEstate from '../../../images/real-estate.png';
-import divorce from '../../../images/divorce.png';
-import insurance from '../../../images/insurance.png';
 import ServicesInfo from './ServicesInfo';
 const Services = () => {
    const [allServices,setAllServices] =useState([])
-    const url = `http://localhost:5000/services`;
+    const url = `https://whispering-lowlands-43821.herokuapp.com/services`;
     useEffect(() => {
         fetch(url)
             .then(res => res.json())
@@ -15,26 +12,7 @@ const Services = () => {
         // setProduct(productsData)
 
     }, [])
-    // const services = [
-    //     {
-    //         name: 'Real-Estate-Cases',
-    //         about: 'Our lawyers will Solve your problem with no doubt',
-    //         img: realEstate,
-    //         price: 90
-    //     },
-    //     {
-    //         name: 'Divorce',
-    //         about: 'Our lawyers will Solve your problem with no doubt',
-    //         img: divorce,
-    //         price: 90
-    //     },
-    //     {
-    //         name: 'Insurance',
-    //         about: 'Our lawyers will Solve your problem with no doubt',
-    //         img: insurance,
-    //         price: 90
-    //     }
-    // ]
+   
     return (
         <div className="container">
             <div>

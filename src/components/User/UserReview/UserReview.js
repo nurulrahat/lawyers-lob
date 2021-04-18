@@ -8,7 +8,7 @@ const UserReview = () => {
     const [reviewData, setReviewData] = useState({});
 
     const handleReview = (event) => {
-        event.preventDefault()
+        
         let name = document.getElementById('name').value;
         let occupation = document.getElementById('occupation').value;
         let review = document.getElementById('review').value;
@@ -19,7 +19,7 @@ const UserReview = () => {
             review: review
         }
         setReviewData(reviewDetails)
-        const uri = `http://localhost:5000/addreview`;
+        const uri = `https://whispering-lowlands-43821.herokuapp.com/addreview`;
         fetch(uri, {
             method: 'POST',
             headers: {

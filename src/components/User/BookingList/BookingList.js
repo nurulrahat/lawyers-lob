@@ -8,7 +8,7 @@ const BookingList = () => {
     const [bookedData, setBookedData] = useState([])
     // let productId =sessionStorage.getItem('productId');
     useEffect(() => {
-        fetch('http://localhost:5000/bookedData?eml=' + loggedInUser.email, {
+        fetch('https://whispering-lowlands-43821.herokuapp.com/bookedData?eml=' + loggedInUser.email, {
             method: 'GET',
             headers: {
                 'Content-Type': 'application/json',
