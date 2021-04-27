@@ -1,15 +1,34 @@
 import axios from 'axios';
-import React, { useEffect } from 'react';
+import React, { useContext, useEffect } from 'react';
 import { useState } from 'react';
 import { useForm } from 'react-hook-form';
+import { UserContext } from '../../../App';
 import DeleteProduct from '../DeleteProduct/DeleteProduct';
 import SideBar from '../SideBar/SideBar';
 
 import './admin.css'
 const Admin = () => {
+  const [loggedInUser, setLoggedInUser] = useContext(UserContext);
+  const [admin, setAdmin] = useState([]);
   const imgApi = '7bb7d090f59fadc4402c1878c34f21f9';
   const { register, handleSubmit, watch } = useForm();
   const [imageUrl, setImageUrl] = useState()
+
+  const url2 = `http://localhost:5000/adminEmail`
+  useEffect(() => {
+    fetch('https://whispering-lowlands-43821.herokuapp.com/adminEmail?eml=' + loggedInUser.email, {
+      method: 'GET',
+      headers: {
+        'Content-Type': 'application/json',
+
+      }
+    })
+      .then(res => res.json())
+      .then(data => {
+        setAdmin(data)
+    })
+  }, [loggedInUser.email])
+  console.log("admin length" ,admin.length)
 
   const [allServices, setAllServices] = useState([])
   const url1 = `https://whispering-lowlands-43821.herokuapp.com/services`;
@@ -17,15 +36,14 @@ const Admin = () => {
     fetch(url1)
       .then(res => res.json())
       .then(data => setAllServices(data))
-    // setProduct(productsData)
-    console.log(allServices)
+
   }, [])
 
   const onSubmit = data => {
-    let name=document.getElementById('name').value;
-    let about=document.getElementById('about').value;
-    let price=document.getElementById('price').value;
-   
+    let name = document.getElementById('name').value;
+    let about = document.getElementById('about').value;
+    let price = document.getElementById('price').value;
+
     const serviceData = {
       name: name,
       price: price,
@@ -58,18 +76,23 @@ const Admin = () => {
 
 
   return (
-    <div style={{backgroundColor:"#008CBA", height:"1000px"}} className="row justify-content-around">
-         <div className="col-2">
-         <SideBar></SideBar>
-         </div>
+
+    <div >
+      {admin.length>0 ? 
+    <div style={{ backgroundColor: "#008CBA", height: "1000px" }} className="row justify-content-around">
+     
+      <div className="col-2">
+        <SideBar></SideBar>
+      </div>
+   
       <div className="col-5 formDiv text-center">
         <h2 className="text-light">Add Service </h2>
         <form className="formCls" onSubmit={handleSubmit(onSubmit)}>
-          <input id="name" {...register("name")} name="name" defaultValue="" placeholder="service"  />
+          <input id="name" {...register("name")} name="name" defaultValue="" placeholder="service" />
           <br />
-          <input id="about" {...register("about")}  type="text" name="about" placeholder="about" />
+          <input id="about" {...register("about")} type="text" name="about" placeholder="about" />
           <br />
-          <input id="price" {...register("price")} type="number" name="price" placeholder="price"  />
+          <input id="price" {...register("price")} type="number" name="price" placeholder="price" />
           <br />
           <input name="image" type="file" defaultValue="" onChange={handleImage} />
 
@@ -77,6 +100,8 @@ const Admin = () => {
           <input type="submit" />
         </form>
       </div>
+     
+     
       <div className="col-5">
 
         <table className="table table-hover mt-5">
@@ -94,7 +119,11 @@ const Admin = () => {
           </tbody>
         </table>
 
-      </div>
+      </div> 
+    </div>:
+     <div className="text center"> 
+       <h3 className="text-danger">Sorry!!! it's not your cup of tea. You aren't an admin</h3>
+       </div> }
     </div>
 
   )

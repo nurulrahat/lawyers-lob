@@ -1,7 +1,4 @@
 import React from 'react';
-import Book from '../Book/Book';
-import BookingList from '../BookingList/BookingList';
-import UserReview from '../UserReview/UserReview';
 import UserSidebar from '../UserSidebar/UserSidebar';
 
 const UserDashBoard = () => {

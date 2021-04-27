@@ -9,7 +9,7 @@ const Services = () => {
             .then(data => {
                 setAllServices(data)
             })
-        // setProduct(productsData)
+     
 
     }, [])
    

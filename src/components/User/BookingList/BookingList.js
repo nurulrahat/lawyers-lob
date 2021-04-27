@@ -31,7 +31,7 @@ const BookingList = () => {
             {
 
             }
-            <h1>User: {loggedInUser.email}</h1>
+            <h3>User: {loggedInUser.name}</h3>
             <table className="table table-hover mt-5">
                 <thead>
                     <tr className="text-light">
