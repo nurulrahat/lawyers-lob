@@ -12,6 +12,8 @@
  7. Has a user Dashboard to see order details
  9. Has a payment method by STRIPE
  10. Has a Admin Dashboard and only admin can access and add more admin
+ 11. Admin can modify services like: editing services and their images and upload them
+ 12. User can provide review 
 ......................................................................................
 # This project has built with :
 1. ReactJs
