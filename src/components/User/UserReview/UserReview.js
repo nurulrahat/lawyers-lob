@@ -19,7 +19,7 @@ const UserReview = () => {
             review: review
         }
         setReviewData(reviewDetails)
-        const uri = `https://whispering-lowlands-43821.herokuapp.com/addreview`;
+        const uri = `http://localhost:5000/addreview`;
         fetch(uri, {
             method: 'POST',
             headers: {

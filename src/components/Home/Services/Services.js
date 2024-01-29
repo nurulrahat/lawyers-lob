@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import ServicesInfo from './ServicesInfo';
 const Services = () => {
    const [allServices,setAllServices] =useState([])
-    const url = `https://whispering-lowlands-43821.herokuapp.com/services`;
+    const url = `http://localhost:5000/services`;
     useEffect(() => {
         fetch(url)
             .then(res => res.json())

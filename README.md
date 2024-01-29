@@ -1,6 +1,6 @@
 # Lawyers' Lobbying is a service providing web app project
 
-# Live-Site: https://lawyers-lobbying.web.app
+# 
 
 # Features :
  1. It's a responsive web app for all kinds of devices

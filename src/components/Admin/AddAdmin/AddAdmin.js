@@ -14,7 +14,7 @@ const AddAdmin = () => {
             email:email   
         }
         setAdmin(adminDetails)
-        const uri = `https://whispering-lowlands-43821.herokuapp.com/addAdmin`;
+        const uri = `http://localhost:5000/addAdmin`;
         fetch(uri, {
             method: 'POST',
             headers: {
