@@ -2,12 +2,13 @@ import React, { useEffect, useState } from 'react';
 import ServicesInfo from './ServicesInfo';
 const Services = () => {
    const [allServices,setAllServices] =useState([])
-    const url = `https://whispering-lowlands-43821.herokuapp.com/services`;
+    const url = `https://lawyers-lob-server.onrender.com/services`;
     useEffect(() => {
         fetch(url)
             .then(res => res.json())
             .then(data => {
                 setAllServices(data)
+                console.log(data)
             })
      
 

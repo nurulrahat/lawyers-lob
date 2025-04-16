@@ -19,7 +19,7 @@ const UserReview = () => {
             review: review
         }
         setReviewData(reviewDetails)
-        const uri = `https://whispering-lowlands-43821.herokuapp.com/addreview`;
+        const uri = `https://lawyers-lob-server.onrender.com/addreview`;
         fetch(uri, {
             method: 'POST',
             headers: {

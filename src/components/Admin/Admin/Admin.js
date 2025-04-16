@@ -14,9 +14,9 @@ const Admin = () => {
   const { register, handleSubmit, watch } = useForm();
   const [imageUrl, setImageUrl] = useState()
 
-  const url2 = `http://localhost:5000/adminEmail`
+  const url2 = `https://lawyers-lob-server.onrender.com/adminEmail`
   useEffect(() => {
-    fetch('https://whispering-lowlands-43821.herokuapp.com/adminEmail?eml=' + loggedInUser.email, {
+    fetch('https://lawyers-lob-server.onrender.com/adminEmail?eml=' + loggedInUser.email, {
       method: 'GET',
       headers: {
         'Content-Type': 'application/json',
@@ -31,7 +31,7 @@ const Admin = () => {
   console.log("admin length" ,admin.length)
 
   const [allServices, setAllServices] = useState([])
-  const url1 = `https://whispering-lowlands-43821.herokuapp.com/services`;
+  const url1 = `https://lawyers-lob-server.onrender.com/services`;
   useEffect(() => {
     fetch(url1)
       .then(res => res.json())
@@ -50,7 +50,7 @@ const Admin = () => {
       about: about,
       img: imageUrl
     }
-    const url2 = `https://whispering-lowlands-43821.herokuapp.com/admin`
+    const url2 = `https://lawyers-lob-server.onrender.com/admin`
     fetch(url2, {
       method: 'POST',
       headers: {

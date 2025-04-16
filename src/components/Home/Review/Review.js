@@ -7,7 +7,7 @@ const Review = () => {
    
     useEffect(() => {
 
-        fetch(`https://whispering-lowlands-43821.herokuapp.com/reviewsData`)
+        fetch(`https://lawyers-lob-server.onrender.com/reviewsData`)
             .then(response => response.json())
             .then(result => setReviews(result))
     },[] )

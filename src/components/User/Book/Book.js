@@ -14,7 +14,7 @@ const Book = () => {
     const [selectedService, setSelectedService] = useState({})
     useEffect(() => {
 
-        fetch(`https://whispering-lowlands-43821.herokuapp.com/book/${id}`)
+        fetch(`https://lawyers-lob-server.onrender.com/book/${id}`)
             .then(response => response.json())
             .then(result => setSelectedService(result))
     }, [id])
@@ -35,7 +35,7 @@ const Book = () => {
             paymentDetails:paymentId
         }
         console.log(bookingDetails)
-        const url = `https://whispering-lowlands-43821.herokuapp.com/insertBooking`
+        const url = `https://lawyers-lob-server.onrender.com/insertBooking`
         fetch(url, {
             method: 'POST',
             headers: {

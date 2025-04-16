@@ -17,6 +17,7 @@ const Navbar = () => {
              <Link to="/login"> Log In</Link>
              <Link className='bg-info'>{loggedInUser.name}</Link>
 
+         
          </nav>
      </div>
     );

@@ -92,39 +92,96 @@ function LogIn() {
 
 
   return (
-    <div className="logInCls">
-      <div>
-        <h3>Create Or LogIn your account</h3>
-     
-        <form action="" onSubmit={handleSubmit}>
-          {
-            newUser ? <h2>Create You Account</h2> : <h2>Log In</h2>
-          }
-          {
-            newUser && <input type="text" name="name" id="" onBlur={handleOnchange} placeholder="Type Name" />
-          }
-          <br />
-          <input type="text" name="email" id="" required onBlur={handleOnchange} placeholder="Type Email" />
-          <br />
-          <input type="password" name="password" id="" required onBlur={handleOnchange} placeholder="Type Password" />
-          <br />
-          <input type="submit" value={newUser ? 'Sign Up' : 'Sign In'} />
-          {
-            <Link onClick={() => setNewUser(!newUser)}> {newUser ? <p>Log In</p> : <p>Create New Account</p>} </Link>
-          }
-        </form>
-        {
-          user.isSignedIn ? <button onClick={handleGoogleSignOut}>Sign Out</button> : <button type="button" className="btn btn-primary btn-lg" onClick={handleGoogleSignIn}><FontAwesomeIcon icon={faGoogle}></FontAwesomeIcon> SignIn with Google</button>
+    <div className="logInCls d-flex justify-content-center align-items-center vh-100 bg-light">
+  <div className="p-4 bg-white shadow rounded" style={{ width: "100%", maxWidth: "400px" }}>
+    <h3 className="text-center mb-4">Create or Log In to Your Account</h3>
 
-        }
-        <br />
-        
-        {
-          user.success ? <p style={{ color: "green" }}>Your  have been {newUser ? 'Created your account' : 'signed in'} successfully </p> : <p style={{ color: "red" }}>{user.error}</p>
-        }
+    <form onSubmit={handleSubmit}>
+      <h5 className="text-center mb-3">{newUser ? "Create Account" : "Log In"}</h5>
 
+      {newUser && (
+        <div className="mb-3">
+          <label htmlFor="name" className="form-label">Name</label>
+          <input
+            type="text"
+            name="name"
+            id="name"
+            className="form-control"
+            onBlur={handleOnchange}
+            placeholder="Type Name"
+          />
+        </div>
+      )}
+
+      <div className="mb-3">
+        <label htmlFor="email" className="form-label">Email</label>
+        <input
+          type="text"
+          name="email"
+          id="email"
+          className="form-control"
+          required
+          onBlur={handleOnchange}
+          placeholder="Type Email"
+        />
       </div>
+
+      <div className="mb-4">
+        <label htmlFor="password" className="form-label">Password</label>
+        <input
+          type="password"
+          name="password"
+          id="password"
+          className="form-control"
+          required
+          onBlur={handleOnchange}
+          placeholder="Type Password"
+        />
+      </div>
+
+      <div className="d-grid mb-3">
+        <input
+          type="submit"
+          className="btn btn-primary"
+          value={newUser ? "Sign Up" : "Sign In"}
+        />
+      </div>
+
+      <div className="text-center">
+        <Link onClick={() => setNewUser(!newUser)}>
+          {newUser ? "Already have an account? Log In" : "New here? Create an account"}
+        </Link>
+      </div>
+    </form>
+
+    <hr className="my-4" />
+
+    <div className="d-grid">
+      {user.isSignedIn ? (
+        <button className="btn btn-outline-danger" onClick={handleGoogleSignOut}>Sign Out</button>
+      ) : (
+        <button
+          type="button"
+          className="btn btn-danger"
+          onClick={handleGoogleSignIn}
+        >
+          <FontAwesomeIcon icon={faGoogle} /> Sign In with Google
+        </button>
+      )}
     </div>
+
+    <div className="text-center mt-3">
+      {user.success ? (
+        <p className="text-success">
+          You have successfully {newUser ? "created your account" : "signed in"}
+        </p>
+      ) : (
+        <p className="text-danger">{user.error}</p>
+      )}
+    </div>
+  </div>
+</div>
+
   );
 }
 
